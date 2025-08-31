@@ -53,7 +53,7 @@ The module source is now in your working directory.
 
 ## 🔧 Configure
 
-Edit the file `minimal_net_server.c` to set your port and password:
+Edit the file `Garpoz_Reptile.c` to set your port and password:
 
 ```c
 #define PORT 9999
@@ -73,13 +73,13 @@ make
 ### Activate the module
 
 ```bash
-sudo insmod network_server.ko
+sudo insmod Garpoz_Reptile.ko
 ```
 
 Verify it is loaded:
 
 ```bash
-lsmod | grep network_server
+lsmod | grep Garpoz_Reptile
 ```
 
 ### Connect to it
@@ -97,7 +97,7 @@ You will be prompted for the password.
 ### Deactivate the module
 
 ```bash
-sudo rmmod network_server
+sudo rmmod Garpoz_Reptile
 ```
 
 ---
@@ -107,7 +107,7 @@ sudo rmmod network_server
 1. Copy the module to the kernel tree:
 
 ```bash
-sudo cp network_server.ko /lib/modules/$(uname -r)/kernel/drivers/
+sudo cp Garpoz_Reptile.ko /lib/modules/$(uname -r)/kernel/drivers/
 ```
 
 2. Regenerate dependencies:
@@ -119,7 +119,7 @@ sudo depmod -a
 3. Create an autoload config:
 
 ```bash
-echo network_server | sudo tee /etc/modules-load.d/network_server.conf
+echo Garpoz_Reptile | sudo tee /etc/modules-load.d/Garpoz_Reptile.conf
 ```
 
 Now the module will load automatically on boot. ✅
