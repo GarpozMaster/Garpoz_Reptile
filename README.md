@@ -40,15 +40,31 @@ sudo pacman -S --noconfirm linux-headers base-devel
 
 ---
 
-### 2) From Git, build with make
+### 2) Get the source
 
 ```bash
 git clone https://github.com/GarpozMaster/Garpoz_Reptile.git
 cd Garpoz_Reptile
-make
 ```
 
-The build outputs `network_server.ko` in the project directory.
+The module source is now in your working directory.
+
+---
+
+## 🔧 Configure
+
+Edit the file `minimal_net_server.c` to set your port and password:
+
+```c
+#define PORT 9999
+#define PASSWORD "change_me"
+```
+
+make it after changes:
+
+```bash
+make
+```
 
 ---
 
@@ -65,6 +81,18 @@ Verify it is loaded:
 ```bash
 lsmod | grep network_server
 ```
+
+### Connect to it
+
+Use netcat from the same host or a host that can reach the chosen IP and port:
+
+```bash
+nc -v <ip> <port>
+# example for local test:
+# nc -v 127.0.0.1 9999
+```
+
+You will be prompted for the password.
 
 ### Deactivate the module
 
